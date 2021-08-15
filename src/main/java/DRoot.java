@@ -12,13 +12,35 @@
 public class DRoot {
     public static int digital_root(int n) {
         int root = 0;
-        while (n > 0 || root > 9) {
+        while (n > 0) {
+            root += (n % 10);
+            n /= 10;
+            if (n == 0 && root > 9) {
+                n = root;
+                root = 0;
+            }
 
         }
 
-
-
-
-        return 0;
+        return root;
     }
 }
+
+
+
+/*n = 456
+n is greater than 0
+456 % 10 = root = 6
+456/10 = 45 = n
+n is greater than 0
+(45 % 10) = 5
+root = 6+5 = 11
+(45/10) = 4 = n
+n is greater than 0
+(4 % 10) = 4
+root = 6+5+4 = 15
+(4/10) = 0
+
+ */
+
+
