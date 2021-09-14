@@ -16,8 +16,9 @@
 public class BoxesSum {
 
     public static void main(String[]args){
-        sumOfBoxes(new int[]{1,1,1,10,1,1,2}); //example input (length odd, repeats)
-        sumOfBoxes(new int[] {7,2,13,12,11,20}); //example input (length even, no repeats)
+        sumOfBoxes(new int[]{1,1,1,10,1,1,2}); //example input (length odd, repeats) expected output = 5
+        sumOfBoxes(new int[] {7,2,13,12,11,20}); //example input (length even, no repeats) expected output = 25
+        sumOfBoxes(new int[] {2,1,1,10,1,1,1}); //first example backwards. expected output = 4
     }
     public static int sumOfBoxes(int[] numbers) {
         int boxesSum = 0; //need something to keep track of the ongoing sum
