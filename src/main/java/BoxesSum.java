@@ -16,21 +16,21 @@
 public class BoxesSum {
 
     public static void main(String[]args){
-        sumOfBoxes(new int[]{1,1,1,10,1,1,2});
-        sumOfBoxes(new int[] {7,2,13,12,11,20});
+        sumOfBoxes(new int[]{1,1,1,10,1,1,2}); //example input (length odd, repeats)
+        sumOfBoxes(new int[] {7,2,13,12,11,20}); //example input (length even, no repeats)
     }
     public static int sumOfBoxes(int[] numbers) {
-        int boxesSum = 0;
+        int boxesSum = 0; //need something to keep track of the ongoing sum
 
-        for (int i = 0; i < numbers.length; i++) {
-            if (numbers.length %2 != 0){
+        for (int i = 0; i < numbers.length; i++) { //need to loop through at least once, going to iterate over each pair of numbers
+            if (numbers.length %2 != 0){ //if the array's length is odd, then you'll get an out-of-bounds exception looking at pairs of numbers, need to break if you only have one box to select from
                 if((i+1)>=numbers.length){
                     boxesSum+=numbers[i];
                     break;
                 }else boxesSum += Math.min(numbers[i], numbers[i + 1]);
-                i++;
+                i++; //this is to go to the next pair of indices
             } else {
-                boxesSum += Math.min(numbers[i], numbers[i + 1]);
+                boxesSum += Math.min(numbers[i], numbers[i + 1]); //if the length of the array is even, much simpler to deal with
                 i++;
             }
         }
